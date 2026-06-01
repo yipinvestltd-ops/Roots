@@ -1,67 +1,71 @@
 import Image from "next/image";
+import Link from "next/link";
+import { WHATSAPP_BOOKING_URL } from "@/lib/constants";
 
 export default function DiningFeature() {
   return (
-    <section className="bg-ivory py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+    <section className="bg-charcoal overflow-hidden">
+      {/* Full-bleed hero image with text — mirrors screenshot 5 */}
+      <div className="relative w-full h-[480px] sm:h-[560px] lg:h-[640px]">
+        <Image
+          src="/images/dining/top-view-dining.png"
+          alt="Dining Lounge & Bar at Roots Inn Kigali"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        {/* Gradient — strong at bottom where text lives, subtle at top */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-charcoal/10" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-5">
-          {/* Main image — full height */}
-          <div className="lg:col-span-3 relative h-80 sm:h-[420px] lg:h-[540px] overflow-hidden group">
-            <Image
-              src="/images/dining/top-view-dining.png"
-              alt="Dining at Roots Inn Kigali"
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-7 lg:p-9">
-              <p className="text-white/60 text-xs font-medium tracking-widest uppercase mb-2">
-                Included every morning
-              </p>
-              <h3 className="font-display font-light text-white text-3xl lg:text-4xl leading-tight">
-                Breakfast before<br />your day starts.
-              </h3>
-              <p className="text-white/65 text-sm mt-3 max-w-xs leading-relaxed">
-                Hot, fresh, and already paid for. No menus, no extra charges — just come down when you&apos;re ready.
-              </p>
-            </div>
-          </div>
-
-          {/* Right column — 3 stacked images */}
-          <div className="lg:col-span-2 grid grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-5">
-            <div className="relative h-40 lg:h-[170px] overflow-hidden group">
-              <Image
-                src="/images/dining/breakfast-1.jpg"
-                alt="Complimentary breakfast at Roots Inn"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                sizes="(max-width: 1024px) 50vw, 40vw"
-              />
-            </div>
-            <div className="relative h-40 lg:h-[170px] overflow-hidden group">
-              <Image
-                src="/images/dining/meal-1.jpg"
-                alt="Meal served at Roots Inn"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                sizes="(max-width: 1024px) 50vw, 40vw"
-              />
-            </div>
-            {/* Third image — desktop only */}
-            <div className="relative h-40 lg:h-[170px] overflow-hidden group hidden lg:block">
-              <Image
-                src="/images/dining/breakfast-3.jpg"
-                alt="Morning breakfast spread at Roots Inn"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                sizes="40vw"
-              />
-            </div>
+        {/* Text — bottom-left, echoing screenshot 5 layout */}
+        <div className="absolute bottom-0 left-0 px-6 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16 max-w-2xl">
+          <p className="text-white/55 text-[10px] font-medium tracking-widest uppercase mb-3">
+            On-site · Open daily
+          </p>
+          <h2 className="font-display font-light text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4">
+            Dining Lounge<br />&amp; Bar.
+          </h2>
+          <p className="text-white/70 text-base leading-relaxed max-w-md">
+            A relaxed space to eat, drink, and unwind. Complimentary breakfast every morning, evening meals, and drinks through the day — all under one roof.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href={WHATSAPP_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-clay hover:bg-clay-dark text-white text-sm font-medium px-7 py-3 transition-colors"
+            >
+              Book a Table
+            </a>
+            <Link
+              href="/services"
+              className="border border-white/35 hover:border-white text-white text-sm font-medium px-7 py-3 transition-colors"
+            >
+              About the dining
+            </Link>
           </div>
         </div>
+      </div>
 
+      {/* Supporting photo strip — 4 images */}
+      <div className="grid grid-cols-2 lg:grid-cols-4">
+        {[
+          { src: "/images/dining/dining-area.png",  alt: "Dining area interior" },
+          { src: "/images/dining/breakfast-1.jpg",  alt: "Complimentary breakfast" },
+          { src: "/images/dining/meal-1.jpg",       alt: "Meal at Roots Inn" },
+          { src: "/images/dining/breakfast-2.jpg",  alt: "Morning breakfast spread" },
+        ].map((img) => (
+          <div key={img.src} className="relative h-44 lg:h-52 overflow-hidden group">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+              sizes="(max-width: 1024px) 50vw, 25vw"
+            />
+            <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-charcoal/5 transition-colors" />
+          </div>
+        ))}
       </div>
     </section>
   );

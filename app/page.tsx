@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Hero from "@/components/sections/Hero";
-import KigaliExperience from "@/components/sections/KigaliExperience";
 import WhyUs from "@/components/sections/WhyUs";
 import FeaturedRooms from "@/components/sections/FeaturedRooms";
 import DiningFeature from "@/components/sections/DiningFeature";
 import AmenitiesSection from "@/components/sections/AmenitiesSection";
 import AttractionsSection from "@/components/sections/AttractionsSection";
+import KigaliExperience from "@/components/sections/KigaliExperience";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ClosingCTA from "@/components/sections/ClosingCTA";
@@ -47,15 +47,25 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {/* 1. Hero */}
       <Hero />
-      <KigaliExperience />
+      {/* 2. Why Roots Inn */}
       <WhyUs />
+      {/* 3. Rooms */}
       <FeaturedRooms />
+      {/* 4. Dining Lounge & Bar */}
       <DiningFeature />
+      {/* 5. What's Included */}
       <AmenitiesSection />
+      {/* 6. Attractions */}
       <AttractionsSection />
+      {/* 7. Kigali Experience — all images combined, slow motion, under attractions */}
+      <KigaliExperience />
+      {/* 8. Reviews */}
       <ReviewsSection />
+      {/* 9. FAQ */}
       <FAQSection preview />
+      {/* 10. Closing CTA */}
       <ClosingCTA />
     </>
   );

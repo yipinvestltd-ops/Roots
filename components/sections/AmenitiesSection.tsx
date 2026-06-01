@@ -51,16 +51,16 @@ export default function AmenitiesSection() {
             </div>
           </div>
 
-          {/* Right — dining photo */}
+          {/* Right — hotel main image */}
           <div className="relative min-h-[320px] lg:min-h-0 overflow-hidden">
             <Image
-              src="/images/dining/dining-area.png"
-              alt="Dining area at Roots Inn Kigali"
+              src="/images/hero/hero-1.png"
+              alt="Roots Inn hotel exterior, Kigali"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-charcoal/40 to-transparent lg:from-charcoal/60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-charcoal/50 to-transparent lg:from-charcoal/40" />
           </div>
 
         </div>

@@ -17,8 +17,11 @@ export default function ClosingCTA() {
       </div>
 
       <div className="relative max-w-3xl mx-auto px-5 lg:px-8 py-20 lg:py-28 text-center">
+        <p className="text-white/50 text-[10px] font-medium tracking-widest uppercase mb-5">
+          KG 20 Ave · Kigali, Rwanda
+        </p>
         <h2 className="font-display font-light text-4xl lg:text-5xl text-white leading-tight mb-4">
-          Rooms from $30/night.
+          Your home in Kigali<br />is waiting.
         </h2>
         <p className="text-white/60 text-base leading-relaxed mb-8 max-w-sm mx-auto">
           Send us your dates and we&apos;ll confirm availability, usually within a few hours.
