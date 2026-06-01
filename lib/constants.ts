@@ -7,10 +7,15 @@ export const SITE = {
   phoneRaw: "+250780967647",
   whatsapp: "+250780967647",
   email: "rootsinnkigali@gmail.com",
+  // Direct navigation to exact Roots Inn pin — works on mobile (opens app) and desktop
   googleMapsUrl:
-    "http://google.com/maps/dir//Roots+Inn,+KG+20+Ave,+Kigali/@-1.9491289,30.1242848,15z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x19dca71581b6df8f:0xcc8a847345942541!2m2!1d30.1324139!2d-1.9440984?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+    "https://www.google.com/maps/place/Roots+Inn/@-1.9440984,30.1324139,17z/data=!3m1!4b1!4m6!3m5!1s0x19dca71581b6df8f:0xcc8a847345942541!8m2!3d-1.9440984!4d30.1324139!16s%2Fg%2F11h_9f85rm",
+  // Get Directions — opens navigation routing TO the exact hotel pin
+  googleMapsDirections:
+    "https://www.google.com/maps/dir/?api=1&destination=Roots+Inn+Kigali&destination_place_id=0x19dca71581b6df8f:0xcc8a847345942541",
+  // Embed — zoomed in tightly on the hotel pin
   googleMapsEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.4!2d30.1302392!3d-1.9440984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca71581b6df8f%3A0xcc8a847345942541!2sRoots%20Inn!5e0!3m2!1sen!2srw!4v1685000000000!5m2!1sen!2srw",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.7!2d30.1314!3d-1.9441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca71581b6df8f%3A0xcc8a847345942541!2sRoots%20Inn!5e0!3m2!1sen!2srw!4v1716000000000!5m2!1sen!2srw",
 };
 
 export const WHATSAPP_BOOKING_URL = `https://wa.me/${SITE.whatsapp}?text=Hello%20Roots%20Inn%2C%20I%20would%20like%20to%20book%20a%20room.`;

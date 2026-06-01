@@ -16,44 +16,37 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
 
-  const go = useCallback((index: number) => {
-    if (transitioning) return;
-    setTransitioning(true);
-    setTimeout(() => {
-      setCurrent(index);
-      setTransitioning(false);
-    }, 300);
-  }, [transitioning]);
+  const go = useCallback(
+    (index: number) => {
+      if (transitioning) return;
+      setTransitioning(true);
+      setTimeout(() => {
+        setCurrent(index);
+        setTransitioning(false);
+      }, 400);
+    },
+    [transitioning]
+  );
 
-  const next = useCallback(() => {
-    go((current + 1) % HERO_IMAGES.length);
-  }, [current, go]);
+  const next = useCallback(() => go((current + 1) % HERO_IMAGES.length), [current, go]);
+  const prev = useCallback(() => go((current - 1 + HERO_IMAGES.length) % HERO_IMAGES.length), [current, go]);
 
-  const prev = useCallback(() => {
-    go((current - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
-  }, [current, go]);
-
-  // Auto-advance
   useEffect(() => {
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 5500);
     return () => clearInterval(timer);
   }, [next]);
 
-  // Touch/swipe
   let touchStartX = 0;
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX = e.touches[0].clientX;
-  };
+  const handleTouchStart = (e: React.TouchEvent) => { touchStartX = e.touches[0].clientX; };
   const handleTouchEnd = (e: React.TouchEvent) => {
     const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      diff > 0 ? next() : prev();
-    }
+    if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
   };
 
   return (
     <section
-      className="relative w-full h-screen min-h-[600px] overflow-hidden"
+      className="relative w-full overflow-hidden"
+      style={{ height: "clamp(480px, 82vh, 760px)" }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -69,25 +62,25 @@ export default function Hero() {
             src={img.src}
             alt={img.alt}
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority={i === 0}
             sizes="100vw"
           />
         </div>
       ))}
 
-      {/* Scrim */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
+      {/* Scrim — lighter at top so navbar logo is readable, richer at bottom for text */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/65" />
 
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center">
-        <p className="text-white/70 text-xs font-medium tracking-widest uppercase mb-5 animate-fade-up">
+      {/* Content — vertically centred with slight upward offset */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center pb-12">
+        <p className="text-white/65 text-[11px] font-medium tracking-widest uppercase mb-4 animate-fade-up">
           KG 20 Ave · Kigali, Rwanda
         </p>
-        <h1 className="font-display font-light text-white text-5xl sm:text-6xl lg:text-8xl leading-none tracking-wide mb-5 animate-fade-up delay-100">
+        <h1 className="font-display font-light text-white text-4xl sm:text-5xl lg:text-7xl leading-none tracking-wide mb-4 animate-fade-up delay-100">
           {SITE.tagline}
         </h1>
-        <p className="text-white/80 text-base lg:text-lg max-w-md leading-relaxed mb-8 animate-fade-up delay-200">
+        <p className="text-white/75 text-sm lg:text-base max-w-sm lg:max-w-md leading-relaxed mb-7 animate-fade-up delay-200">
           {SITE.subTagline}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 animate-fade-up delay-300">
@@ -95,54 +88,47 @@ export default function Hero() {
             href={WHATSAPP_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-clay hover:bg-clay-dark text-white text-sm font-medium px-8 py-4 transition-colors min-w-[160px]"
+            className="bg-clay hover:bg-clay-dark text-white text-sm font-medium px-8 py-3.5 transition-colors min-w-[152px]"
           >
             Book Now
           </a>
           <a
             href="/rooms"
-            className="border border-white/60 hover:border-white text-white text-sm font-medium px-8 py-4 transition-colors min-w-[160px]"
+            className="border border-white/55 hover:border-white text-white text-sm font-medium px-8 py-3.5 transition-colors min-w-[152px]"
           >
             View Rooms
           </a>
         </div>
       </div>
 
-      {/* Prev / Next arrows — desktop */}
+      {/* Prev / Next — desktop only */}
       <button
         onClick={prev}
-        className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors hidden sm:flex"
+        className="absolute left-5 lg:left-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/25 hover:bg-black/45 text-white flex items-center justify-center transition-colors hidden sm:flex"
         aria-label="Previous image"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={18} />
       </button>
       <button
         onClick={next}
-        className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors hidden sm:flex"
+        className="absolute right-5 lg:right-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/25 hover:bg-black/45 text-white flex items-center justify-center transition-colors hidden sm:flex"
         aria-label="Next image"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={18} />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2">
+      <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2">
         {HERO_IMAGES.map((_, i) => (
           <button
             key={i}
             onClick={() => go(i)}
             className={`transition-all duration-300 rounded-full ${
-              i === current ? "w-8 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/40"
+              i === current ? "w-6 h-1 bg-white" : "w-1 h-1 bg-white/40"
             }`}
-            aria-label={`Go to image ${i + 1}`}
+            aria-label={`Slide ${i + 1}`}
           />
         ))}
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 right-6 lg:right-10 hidden sm:flex flex-col items-center gap-2">
-        <div className="w-px h-12 bg-white/30 relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-full bg-white/60 animate-[scrollLine_2s_ease_infinite]" />
-        </div>
       </div>
     </section>
   );

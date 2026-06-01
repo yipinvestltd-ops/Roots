@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Hero from "@/components/sections/Hero";
+import KigaliExperience from "@/components/sections/KigaliExperience";
 import WhyUs from "@/components/sections/WhyUs";
 import FeaturedRooms from "@/components/sections/FeaturedRooms";
 import DiningFeature from "@/components/sections/DiningFeature";
 import AmenitiesSection from "@/components/sections/AmenitiesSection";
-import KigaliContext from "@/components/sections/KigaliContext";
+import AttractionsSection from "@/components/sections/AttractionsSection";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ClosingCTA from "@/components/sections/ClosingCTA";
@@ -47,11 +48,12 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
+      <KigaliExperience />
       <WhyUs />
       <FeaturedRooms />
       <DiningFeature />
       <AmenitiesSection />
-      <KigaliContext />
+      <AttractionsSection />
       <ReviewsSection />
       <FAQSection preview />
       <ClosingCTA />

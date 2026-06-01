@@ -37,7 +37,7 @@ export default function RootLayout({
       </head>
       <body className="bg-linen text-stone antialiased">
         <Navbar />
-        <main>{children}</main>
+        <main className="pb-16 lg:pb-0">{children}</main>
         <StickyBookingBar />
         <Footer />
       </body>

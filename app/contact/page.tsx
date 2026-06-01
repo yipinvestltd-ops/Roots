@@ -141,20 +141,20 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="relative w-full h-80 lg:h-[420px] overflow-hidden bg-stone/10">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.3962!2d30.1302392!3d-1.9440984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca71581b6df8f%3A0xcc8a847345942541!2sRoots%20Inn!5e0!3m2!1sen!2srw!4v1685000000000!5m2!1sen!2srw"
+                  src={SITE.googleMapsEmbed}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Roots Inn location on Google Maps"
+                  title="Roots Inn exact location on Google Maps"
                   className="absolute inset-0"
                 />
               </div>
               <div className="mt-4 flex flex-col sm:flex-row gap-3">
                 <a
-                  href={SITE.googleMapsUrl}
+                  href={SITE.googleMapsDirections}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-clay hover:bg-clay-dark text-white text-sm font-medium px-6 py-3 transition-colors"
@@ -180,7 +180,7 @@ export default function ContactPage() {
                 </h3>
                 <div className="flex flex-col gap-4">
                   <a
-                    href={SITE.googleMapsUrl}
+                    href={SITE.googleMapsDirections}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 text-sm text-stone-light hover:text-charcoal transition-colors"

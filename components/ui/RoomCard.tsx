@@ -23,7 +23,7 @@ export default function RoomCard({ room }: { room: Room }) {
     <div className="bg-ivory overflow-hidden border border-stone/10">
       {/* Image area */}
       <div className="relative">
-        <div className="relative h-72 sm:h-96 overflow-hidden">
+        <div className="relative h-56 sm:h-80 overflow-hidden">
           {room.images.map((src, i) => (
             <div
               key={src}

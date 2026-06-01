@@ -55,7 +55,7 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-4">
               <a
-                href={SITE.googleMapsUrl}
+                href={SITE.googleMapsDirections}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-sm text-white/50 hover:text-white transition-colors"

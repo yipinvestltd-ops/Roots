@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function DiningFeature() {
   return (
-    <section className="bg-linen py-16 lg:py-24">
+    <section className="bg-ivory py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-5">

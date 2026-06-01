@@ -38,7 +38,7 @@ export default function RoomsPage() {
       </section>
 
       {/* Jump links */}
-      <div className="bg-ivory border-b border-stone/10 overflow-x-auto">
+      <div className="bg-ivory border-b border-stone/10 overflow-x-auto scrollbar-hide">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 py-4 flex gap-6 min-w-max lg:min-w-0 lg:flex-wrap">
           {ROOMS.map((room) => (
             <a

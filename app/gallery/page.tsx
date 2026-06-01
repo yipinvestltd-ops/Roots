@@ -107,7 +107,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Filter tabs — sticky */}
-      <div className="bg-linen border-b border-stone/10 sticky top-16 z-30">
+      <div className="bg-linen border-b border-stone/10 sticky top-16 lg:top-20 z-30">
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <div className="flex gap-0 overflow-x-auto scrollbar-hide">
             {TABS.map((tab) => (
